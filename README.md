@@ -39,12 +39,12 @@ WHERE `level` = 'magistrale';
 
 7. Da quanti dipartimenti è composta l'università? (12)
 
-SELECT COUNT(\*) FROM `university`.`departments`;
+SELECT COUNT(`id`) FROM `university`.`departments`;
 
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
-SELECT COUNT(\*) FROM `university`.`teachers`
-WHERE `phone` IS NOT NULL;
+SELECT COUNT(`id`) FROM `university`.`teachers`
+WHERE `phone` IS NULL;
 
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
    degree_id, inserire un valore casuale)
@@ -53,8 +53,16 @@ INSERT INTO `university`.`students` (`degree_id`, `name`, `surname`, `date_of_bi
 
 10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
 
-UPDATE `university`.`teachers` SET `office_number` = '126' WHERE (`id` = '58');
+UPDATE `university`.`teachers` SET `office_number` = '126' WHERE (`id` = 58);
 
 11. Eliminare dalla tabella studenti il record creato precedentemente al punto
 
-DELETE FROM `university`.`students` WHERE (`id` = '5014');
+DELETE FROM `university`.`students` WHERE (`id` = 5014);
+
+# BONUS GROUP BY
+
+1. Contare quanti iscritti ci sono stati ogni anno
+
+2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+3. Calcolare la media dei voti di ogni appello d'esame
+4. Contare quanti corsi di laurea ci sono per ogni dipartiment
